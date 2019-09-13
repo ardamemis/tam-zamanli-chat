@@ -28,6 +28,7 @@ function mesajGonder() {
             from: kadi,
             tarih: tarih.getTime()
         });
+        $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight);
         //Otomatik olarak en alt kısma odakanılır
         $("#mesaj").val(''); //Mesaj inputunu temizleyelim
     } else {
