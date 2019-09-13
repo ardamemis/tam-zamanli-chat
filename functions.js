@@ -59,7 +59,7 @@ function chatYukle() {
                            </div>`;
                 $("#mesajAlani").append(mesaj);
             }
-            $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight);
+            $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         });
         
     });
