@@ -59,7 +59,8 @@ function chatYukle() {
                            </div>`;
                 $("#mesajAlani").append(mesaj);
             }
-            $("#card-header").set("<b>" + kadi + "<b>"+ "Olarak giriş yaptınız. | NinthChat");
+            var kulanicigiris = $(`<div class="card-header">`+ "<b>" + kadi + "<b>"+ "Olarak giriş yaptınız. | NinthChat" + `</div>`)
+            $("#card-header").append("<b>" + kadi + "<b>"+ "Olarak giriş yaptınız. | NinthChat");
             $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         });
         
