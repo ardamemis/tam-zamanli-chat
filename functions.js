@@ -38,13 +38,13 @@ function mesajGonder() {
 }
 function girisYaptiniz(kullanici) {
     if (kullanici != "") {
-        document.getElementById('cardheader').innerHTML("<b>@" + kullanici + " olarak giriş yaptınız </b>" )
+        document.getElementById('cardheader').setAttribute("<b>@" + kullanici + " olarak giriş yaptınız </b>" )
     }
 }
 function chatYukle() {
     var query = firebase.database().ref("chats");
     var kadi = $("#kadi").val();
-    girisYaptiniz(kadi);
+    //girisYaptiniz(kadi);
     query.on('value', function (snapshot) {
         $("#mesajAlani").html("");
         snapshot.forEach(function (childSnapshot) {
@@ -53,7 +53,7 @@ function chatYukle() {
                 //Mesaj bizim tarafımızdan gönderilmişse bu alan çalışacak
                 var mesaj = `<div class="d-flex justify-content-end">
                 <div class="alert alert-info" role="alert">
-                    `+  data.message + ` <b>@` + data.from + `</b>
+                    `+ data.message + ` <b>@` + data.from + `</b>
                       </div>
                  </div>`;
                 $("#mesajAlani").append(mesaj);
