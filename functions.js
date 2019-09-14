@@ -44,7 +44,7 @@ function girisYaptiniz(kullanici) {
 function chatYukle() {
     var query = firebase.database().ref("chats");
     var kadi = $("#kadi").val();
-    //girisYaptiniz(kadi);
+    girisYaptiniz(kadi);
     query.on('value', function (snapshot) {
         $("#mesajAlani").html("");
         snapshot.forEach(function (childSnapshot) {
@@ -61,7 +61,7 @@ function chatYukle() {
                 //Mesaj başkası tarafından gönderilmişse bu alan çalışacak
                 var mesaj = `<div class="d-flex">
                                     <div class="alert alert-dark" role="alert">
-                                      <b>@`+ data.from + `</b> ` + data.message + `
+                                      <b>@` + data.from + `</b> ` + data.message + `
                                   </div>
                            </div>`;
                 $("#mesajAlani").append(mesaj);
