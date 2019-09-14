@@ -84,7 +84,7 @@ function girisYap() {
         });
     });
 }
-
+/*
 function girisYaps() {
     var user = $("#kadi").val();
     var pass = $("#sifre").val();
@@ -97,3 +97,4 @@ function girisYaps() {
     }
     document.write('Giriş yapılamadı')
 }
+*/
