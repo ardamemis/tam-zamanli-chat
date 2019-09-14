@@ -1,8 +1,7 @@
 function uyeKaydet() {
     var kadi = $("#kadi").val();
     if (kadi != "") {
-        const random = Math.random() * 1000000000;
-        var userKey = firebase.database().ref("users/").push().random; //Rastgele bir userkey gönderir.
+        var userKey = firebase.database().ref("users/").push().key; //Rastgele bir userkey gönderir.
         firebase.database().ref("users/" + userKey).set({
             username: kadi,
             kulid: userKey
@@ -23,13 +22,14 @@ function mesajGonder() {
     var kadi = $("#kadi").val();
     if (kadi != "" && mesaj != "") {
         var tarih = new Date();
-        var messageKey = firebase.database().ref("chats/").push().random; //Rastgele bir mesaj keyi gönderir.
+        var messageKey = firebase.database().ref("chats/").push().key; //Rastgele bir mesaj keyi gönderir.
         firebase.database().ref("chats/" + messageKey).set({
             message: mesaj,
             from: kadi,
             tarih: tarih.getTime()
         });
         //Otomatik olarak en alt kısma odakanılır
+        $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         $("#mesaj").val(''); //Mesaj inputunu temizleyelim
     } else {
         alert("Lütfen boş alan bırakmayınız!");
@@ -60,8 +60,8 @@ function chatYukle() {
                            </div>`;
                 $("#mesajAlani").append(mesaj);
             }
-            var kulanicigiris = $(`<div class="card-header">`+ "<b>" + kadi + "<b>"+ "Olarak giriş yaptınız. | NinthChat" + `</div>`)
-            $("#card-header").html(kullanicigiris);
+            var header = document.getElementsByClassName('card-header');
+            header.set('deneme')
             $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         });
         
