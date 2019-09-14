@@ -38,7 +38,7 @@ function mesajGonder() {
 }
 function girisYaptiniz(kullanici) {
     if (kullanici != "") {
-        $("card-header").text("<b>@" + kullanici + " olarak giriş yaptınız </b>" )
+        alert("@"+kullanici + ", olarak giriş yaptınız." )
     }
 }
 function chatYukle() {
@@ -61,7 +61,7 @@ function chatYukle() {
                 //Mesaj başkası tarafından gönderilmişse bu alan çalışacak
                 var mesaj = `<div class="d-flex">
                                     <div class="alert alert-dark" role="alert">
-                                      <b>@` + data.from + `</b> ` + data.message + `
+                                      <b>@`+ data.from + `</b> ` + data.message + `
                                   </div>
                            </div>`;
                 $("#mesajAlani").append(mesaj);
