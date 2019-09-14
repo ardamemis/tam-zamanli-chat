@@ -44,7 +44,7 @@ function girisYaptiniz(kullanici) {
 function chatYukle() {
     var query = firebase.database().ref("chats");
     var kadi = $("#kadi").val();
-    girisYaptiniz(kadi);
+    //girisYaptiniz(kadi);
     query.on('value', function (snapshot) {
         $("#mesajAlani").html("");
         snapshot.forEach(function (childSnapshot) {
