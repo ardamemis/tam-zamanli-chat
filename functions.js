@@ -38,13 +38,13 @@ function mesajGonder() {
 }
 function girisYaptiniz(kullanici) {
     if (kullanici != "") {
-        document.getElementById('cardheader').setAttribute("<b>@" + kullanici + " olarak giriş yaptınız </b>" )
+        $("cardheader").text("<b>@" + kullanici + " olarak giriş yaptınız </b>" )
     }
 }
 function chatYukle() {
     var query = firebase.database().ref("chats");
     var kadi = $("#kadi").val();
-    //girisYaptiniz(kadi);
+    girisYaptiniz(kadi);
     query.on('value', function (snapshot) {
         $("#mesajAlani").html("");
         snapshot.forEach(function (childSnapshot) {
