@@ -53,7 +53,7 @@ function chatYukle() {
                 //Mesaj bizim tarafımızdan gönderilmişse bu alan çalışacak
                 var mesaj = `<div class="d-flex justify-content-end">
                 <div class="alert alert-info" role="alert">
-                    `+ data.message + ` <b>@` + data.from + `</b>
+                    `+  data.message + ` <b>@` + data.from + `</b>
                       </div>
                  </div>`;
                 $("#mesajAlani").append(mesaj);
