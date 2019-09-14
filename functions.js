@@ -30,15 +30,20 @@ function mesajGonder() {
         });
         //Otomatik olarak en alt kısma odakanılır
         $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
+        girisYaptiniz();
         $("#mesaj").val(''); //Mesaj inputunu temizleyelim
     } else {
         alert("Lütfen boş alan bırakmayınız!");
     }
 }
-
+function girisYaptiniz() {
+    if (kadi != "") {
+        alert(kadi + ' olarak giriş yaptınız.')
+    }
+}
 function chatYukle() {
     var query = firebase.database().ref("chats");
-    var kadi = $("#kadi").val();
+    const kadi = $("#kadi").val();
     query.on('value', function (snapshot) {
         $("#mesajAlani").html("");
         snapshot.forEach(function (childSnapshot) {
@@ -59,9 +64,6 @@ function chatYukle() {
                                   </div>
                            </div>`;
                 $("#mesajAlani").append(mesaj);
-            }
-            if (kadi != "") {
-                alert(kadi + ' olarak giriş yaptınız.')
             }
             $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         });
