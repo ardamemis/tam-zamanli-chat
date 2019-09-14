@@ -38,7 +38,7 @@ function mesajGonder() {
 }
 function girisYaptiniz(kullanici) {
     if (kullanici != "") {
-        alert("@"+kullanici + ", olarak giriş yaptınız." )
+        document.getElementById("cardheader").innerHTML="<b>@" + kadi + "</b> olarak giriş yaptınız.";
     }
 }
 function chatYukle() {
