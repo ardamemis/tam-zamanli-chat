@@ -38,7 +38,7 @@ function mesajGonder() {
 }
 function girisYaptiniz(kullanici) {
     if (kullanici != "") {
-        document.getElementById("cardheader").innerHTML="<b>@" + kullanici + "</b> olarak giriş yaptınız.";
+        document.getElementById("cardheader").innerHTML="<b>@" + kullanici.toString() + "</b> olarak giriş yaptınız.";
     }
 }
 function chatYukle() {
