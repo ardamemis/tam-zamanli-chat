@@ -29,22 +29,15 @@ function mesajGonder() {
             tarih: tarih.getTime()
         });
         //Otomatik olarak en alt kısma odakanılır
-        //$(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
-        
         $("#mesaj").val(''); //Mesaj inputunu temizleyelim
     } else {
         alert("Lütfen boş alan bırakmayınız!");
     }
 }
-function girisYaptiniz(kullanici) {
-    if (kullanici != "") {
-        document.getElementById("cardheader").innerHTML="<b>@" + kullanici.toString() + "</b> olarak giriş yaptınız.";
-    }
-}
+
 function chatYukle() {
     var query = firebase.database().ref("chats");
     var kadi = $("#kadi").val();
-    girisYaptiniz(kadi);
     query.on('value', function (snapshot) {
         $("#mesajAlani").html("");
         snapshot.forEach(function (childSnapshot) {
@@ -66,8 +59,41 @@ function chatYukle() {
                            </div>`;
                 $("#mesajAlani").append(mesaj);
             }
+            $("#card-header").set("<b>" + kadi + "<b>"+ "Olarak giriş yaptınız. | NinthChat");
             $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         });
     });
 }
 
+function girisYap() {
+    var user = $("#kadi").val();
+    var pass = $("#sifre").val();
+
+    var query = firebase.database().ref("users");
+    query.on('value', function (snapshot) {
+        $("#mesajAlani").html("");
+        snapshot.forEach(function (childSnapshot) {
+            var data = childSnapshot.val();
+            for (i = 0; i < data.length; i++) {
+                if (user == data[i].username && pass == data[i].password) {
+                    console.log(user + 'olarak giriş yapıldı')
+                    return
+                }
+            }
+            console.log('Giriş yapılamadı')
+        });
+    });
+}
+
+function girisYaps() {
+    var user = $("#kadi").val();
+    var pass = $("#sifre").val();
+
+    for (i = 0; i < users.length; i++) {
+        if (user == users[i].username && pass == users[i].password) {
+            document.write('Giriş yapıldı')
+            return
+        }
+    }
+    document.write('Giriş yapılamadı')
+}
