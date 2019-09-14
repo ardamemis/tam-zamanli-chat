@@ -29,21 +29,22 @@ function mesajGonder() {
             tarih: tarih.getTime()
         });
         //Otomatik olarak en alt kısma odakanılır
-        $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
-        girisYaptiniz();
+        //$(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
+        
         $("#mesaj").val(''); //Mesaj inputunu temizleyelim
     } else {
         alert("Lütfen boş alan bırakmayınız!");
     }
 }
-function girisYaptiniz() {
-    if (kadi != "") {
-        alert(kadi + ' olarak giriş yaptınız.')
+function girisYaptiniz(kullanici) {
+    if (kullanici != "") {
+        alert(kullanici + ' olarak giriş yaptınız.')
     }
 }
 function chatYukle() {
     var query = firebase.database().ref("chats");
-    const kadi = $("#kadi").val();
+    var kadi = $("#kadi").val();
+    girisYaptiniz(kadi);
     query.on('value', function (snapshot) {
         $("#mesajAlani").html("");
         snapshot.forEach(function (childSnapshot) {
@@ -67,7 +68,6 @@ function chatYukle() {
             }
             $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         });
-        
     });
 }
 
