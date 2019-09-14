@@ -60,8 +60,9 @@ function chatYukle() {
                            </div>`;
                 $("#mesajAlani").append(mesaj);
             }
-            var header = document.getElementsByClassName('card-header');
-            header.set('deneme')
+            if (kadi != "") {
+                alert(kadi + ' olarak giriş yaptınız.')
+            }
             $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         });
         
