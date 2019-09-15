@@ -59,12 +59,12 @@ function chatYukle() {
                            </div>`;
                 $("#mesajAlani").append(mesaj);
             }
-            $("#card-header").set("<b>" + kadi + "<b>"+ "Olarak giriş yaptınız. | NinthChat");
+            //$("#card-header").set("<b>" + kadi + "<b>"+ "Olarak giriş yaptınız. | NinthChat");
             $(".card-body").scrollTop($('.card-body')[0].scrollHeight - $('.card-body')[0].clientHeight + 10);
         });
     });
 }
-
+/*
 function girisYap() {
     var user = $("#kadi").val();
     var pass = $("#sifre").val();
@@ -84,17 +84,5 @@ function girisYap() {
         });
     });
 }
-/*
-function girisYaps() {
-    var user = $("#kadi").val();
-    var pass = $("#sifre").val();
 
-    for (i = 0; i < users.length; i++) {
-        if (user == users[i].username && pass == users[i].password) {
-            document.write('Giriş yapıldı')
-            return
-        }
-    }
-    document.write('Giriş yapılamadı')
-}
 */
